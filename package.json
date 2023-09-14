@@ -1,0 +1,35 @@
+{
+  "name": "reacttut",
+  "version": "1.0.0",
+  "description": "This is NR by Rudra",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnswerMinds/ReactTut.git"
+  },
+  "keywords": [
+    "react",
+    "NR",
+    "Rudra"
+  ],
+  "author": "Rudra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnswerMinds/ReactTut/issues"
+  },
+  "homepage": "https://github.com/AnswerMinds/ReactTut#readme",
+  "devDependencies": {
+    "parcel": "^2.9.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": [
+    "last 2 Chrome version",
+    "last 2 Edge"
+  ]
+}
