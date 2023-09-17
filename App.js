@@ -1,35 +1,43 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-//jsx
-const jsxHeading = (
-  <h1 className="head" tabIndex="1">
-    Namaste React Using JSX 🚀
-  </h1>
-);
+// Header
+//  -Logo
+//  - Nav Items
 
-console.log(jsxHeading);
-const TitleComponent = () => {
+// Body
+// -Search
+
+// Restaurant container
+// Res Card
+// Footer
+const Header = () => {
   return (
-    <div>
-      <h1>Namaste React Title🚀</h1>
+    <div className="header">
+      <div className="logo-container">
+        <img
+          className="logo"
+          src="https://static.vecteezy.com/system/resources/thumbnails/007/058/031/small/fresh-food-logo-design-vector.jpg"
+        />
+      </div>
+      <div className="nav-items">
+        <ul>
+          <li>Home</li>
+          <li>About Us</li>
+          <li>Contact Us</li>
+          <li>Cart</li>
+        </ul>
+      </div>
     </div>
   );
 };
-const number = 100;
-//React Functional Component
-const HeadingComponent = () => {
+const AppLayout = () => {
   return (
-    <div>
-      <TitleComponent />
-      <TitleComponent></TitleComponent>
-      {TitleComponent()}
-      {/* component inside another component is called component composition */}
-      <h1>Namaste React Functional Component🚀</h1>
-      <h2>{number}</h2>
+    <div className="app">
+      <Header />
     </div>
   );
 };
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<HeadingComponent />); // the object gets converted into Element by render
+root.render(<AppLayout />); // the object gets converted into Element by render
