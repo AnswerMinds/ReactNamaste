@@ -31,10 +31,58 @@ const Header = () => {
     </div>
   );
 };
+
+const RestaurantCard = () => {
+  return (
+    <div className="res-card">
+      <img
+        className="res-logo"
+        alt="res-logo"
+        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/rtzzvabs7qf7eoe8cr1s"
+      />
+      <h3>Fresh foods</h3>
+      <h4>Biriyani, South Indian</h4>
+      <h4>4.1 stars</h4>
+      <h4>32 minutes</h4>
+    </div>
+  );
+};
+
+const Body = () => {
+  return (
+    <div className="body">
+      <div className="search">Search</div>
+      <div className="res-container">
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+      </div>
+    </div>
+  );
+};
+
 const AppLayout = () => {
   return (
     <div className="app">
       <Header />
+      <Body />
     </div>
   );
 };
