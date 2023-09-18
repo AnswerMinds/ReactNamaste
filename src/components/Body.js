@@ -15,10 +15,14 @@ const Body = () => {
     );
 
     const jsonData = await data.json();
-    console.log(jsonData);
-    console.log(jsonData.data.cards[1].card);
+    const dataForRes =
+      jsonData.data.cards[2].card.card.gridElements.infoWithStyle.restaurants;
+    console.log(
+      jsonData.data.cards[2].card.card.gridElements.infoWithStyle.restaurants
+    );
+    console.log(ResList.restaurants);
 
-    // setListRestaurant(jsonData);
+    setListRestaurant(dataForRes);
   };
   return (
     <div className="body">
