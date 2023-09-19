@@ -1,9 +1,8 @@
-import ResList from "../utils/mockData";
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 
 const Body = () => {
-  const [listOfRestaurants, setListRestaurant] = useState(ResList.restaurants);
+  const [listOfRestaurants, setListRestaurant] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -20,7 +19,6 @@ const Body = () => {
     console.log(
       jsonData.data.cards[2].card.card.gridElements.infoWithStyle.restaurants
     );
-    console.log(ResList.restaurants);
 
     setListRestaurant(dataForRes);
   };
@@ -30,7 +28,7 @@ const Body = () => {
         <button
           className="filter-btn"
           onClick={() => {
-            const filterdRestaurants = ResList.restaurants.filter(
+            const filterdRestaurants = listOfRestaurants.filter(
               (res) => res.info.avgRating > 4
             );
             setListRestaurant(filterdRestaurants);
