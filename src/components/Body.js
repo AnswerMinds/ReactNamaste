@@ -1,5 +1,6 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [listOfRestaurants, setListRestaurant] = useState([]);
@@ -15,13 +16,15 @@ const Body = () => {
 
     const jsonData = await data.json();
     const dataForRes =
-      jsonData.data.cards[2].card.card.gridElements.infoWithStyle.restaurants;
-    console.log(
-      jsonData.data.cards[2].card.card.gridElements.infoWithStyle.restaurants
-    );
+      jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants;
 
     setListRestaurant(dataForRes);
   };
+
+  if (listOfRestaurants.length === 0) {
+    return <Shimmer />;
+  }
   return (
     <div className="body">
       <div className="filter">
