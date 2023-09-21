@@ -9,3 +9,8 @@
 // Restaurant container
 // Res Card
 // Footer
+
+# Types of routing in Wep app
+
+Client side routing
+Server side routing
