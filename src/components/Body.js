@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withOfferLabel } from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -10,6 +10,7 @@ const Body = () => {
 
   const [searchText, setSearchText] = useState("");
 
+  const RestaurantCardTopRated = withOfferLabel(RestaurantCard);
   useEffect(() => {
     fetchData();
   }, []);
@@ -28,7 +29,7 @@ const Body = () => {
   };
 
   const onlineStatus = useOnlineStatus();
-
+  console.log(listOfRestaurants);
   if (onlineStatus === false) return <h1>Oops You are offline</h1>;
 
   //conditional rendering
@@ -78,9 +79,14 @@ const Body = () => {
         {filteredRestaurants.map((restaurant) => (
           <Link
             to={"/restaurants/" + restaurant.info.id}
-            key={restaurant.info.id}
+            key={restaurant?.info.id}
           >
-            <RestaurantCard resData={restaurant} />
+            {/* higher order components */}
+            {restaurant?.info.avgRating > 4.1 ? (
+              <RestaurantCardTopRated resData={restaurant} />
+            ) : (
+              <RestaurantCard resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>
