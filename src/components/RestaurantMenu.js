@@ -5,17 +5,15 @@ import useRestaurantMenu from "../utils/useRestrauntMenu";
 import RestaurantCategory from "./RestaurantCategory";
 const RestaurantMenu = () => {
   const { resId } = useParams();
-  console.log(resId);
   const resInfo = useRestaurantMenu(resId);
 
+  const [showIndex, setShowIndex] = useState(null);
   if (resInfo === null) {
     return <Shimmer />;
   }
-  //console.log(resInfo);
+
   const { itemCards } =
     resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
-  // console.log(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
-
   const categories =
     resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (c) =>
@@ -32,8 +30,13 @@ const RestaurantMenu = () => {
         {cuisines.join(", ")} - {costForTwoMessage}
       </p>
       {/* accordians */}
-      {categories.map((categories) => (
-        <RestaurantCategory data={categories?.card?.card} />
+      {categories.map((categories, index) => (
+        <RestaurantCategory
+          key={categories?.card?.card?.title}
+          data={categories?.card?.card}
+          showItems={index === showIndex && true}
+          setShowIndex={() => setShowIndex(index)}
+        />
       ))}
     </div>
   );
